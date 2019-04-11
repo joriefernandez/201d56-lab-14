@@ -47,12 +47,23 @@ function addSelectedItemToCart() {
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {}
+function updateCounter() {
+  // cart = JSON.parse(localStorage.cart);
+  document.getElementById('itemCount').textContent = cart.length;
+}
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
   // TODO: Get the item and quantity from the form
+  var list = document.getElementById('cartContents');
+  var selectElement = document.getElementById('items');
+  var selectedItem = selectElement.options[selectElement.selectedIndex].value;
+  // TODO: get the quantity
+  var qty = document.getElementById('quantity').value;
   // TODO: Add a new element to the cartContents div with that information
+  var shopped = document.createElement('p');
+  shopped.textContent = `${qty}: ${selectedItem}`;
+  list.appendChild(shopped);
 }
 
 // Set up the "submit" event listener on the form.
