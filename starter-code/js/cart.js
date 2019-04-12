@@ -27,10 +27,10 @@ function clearCart() {
 function showCart() {
   
   // TODO: Find the table body
-  var tableBody = table.getElementsByTagName('tbody');
-
+  var tableBody = table.getElementsByTagName('tbody')[0];
+  
   // TODO: Iterate over the items in the cart
-  for (var i = 0; i < cart.length; i++){
+  for (var i = 0; i < cart.items.length; i++){
 
     console.log('Creating tables');
     var trEl = document.createElement('tr');
@@ -43,15 +43,16 @@ function showCart() {
     // Qty
     tdElem.textContent = 'X';
     trEl.appendChild(tdElem);
-    //Item
-    // tdEl = document.createElement('td');
-    // tdEl.textContent = cart[i].quantity;
-    // trEl.appendChild(tdEl);
-    // console.log(cart[i].quantity);
 
-    // tdEl = document.createElement('td');
-    // tdEl.textContent = cart[i].product;
-    // trEl.appendChild(tdEl);
+   
+    //Item
+    tdElem = document.createElement('td');
+    tdElem.textContent = cart.items[i].quantity;
+    trEl.appendChild(tdElem);
+    
+    tdElem = document.createElement('td');
+    tdElem.textContent = cart.items[i].product;
+    trEl.appendChild(tdElem);
 
     tableBody.appendChild(trEl);
     
